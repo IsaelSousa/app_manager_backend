@@ -1,0 +1,6 @@
+@app_manager_device_backend_HostAddress = http://localhost:5299
+
+GET {{app_manager_device_backend_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
