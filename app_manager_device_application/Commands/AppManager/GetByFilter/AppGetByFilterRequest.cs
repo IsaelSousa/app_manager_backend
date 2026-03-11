@@ -6,6 +6,6 @@ namespace app_manager_device_application.Commands.AppManager.GetByFilter
 {
     public class AppGetByFilterRequest : IRequest<ResponseModel<List<AppManagerDTO>>>
     {
-
+        public string Device { get; set; } = string.Empty;
     }
 }

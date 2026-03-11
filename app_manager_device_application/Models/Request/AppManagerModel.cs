@@ -10,5 +10,6 @@
         public DateTimeOffset CreatedAt { get; set; }
         public DateTimeOffset LastUpdate { get; set; }
         public bool IsDeleted { get; set; } = false;
+        public List<AppDeviceModel> Devices { get; set; } = [];
     }
 }

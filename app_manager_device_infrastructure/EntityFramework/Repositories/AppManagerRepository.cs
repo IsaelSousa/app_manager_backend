@@ -43,10 +43,12 @@ namespace app_manager_device_infrastructure.EntityFramework.Repositories
             return false;
         }
 
-        public async Task<List<AppManagerEF>> GetByFilter()
+        public async Task<List<AppManagerEF>> GetByFilter(string device)
         {
-
-            return await _dbSet.Where(x => !x.IsDeleted).ToListAsync();
+            return await _dbSet
+                .Where(x => !x.IsDeleted)
+                .Include(x => x.Devices.Where(d => !d.IsDeleted && (string.IsNullOrEmpty(device) || d.Device == device)))
+                .ToListAsync();
         }
     }
 }

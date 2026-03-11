@@ -4,6 +4,7 @@
     {
         public string Id { get; set; } = null;
         public string Device { get; set; }
+        public string AppManagerId { get; set; }
         public string Uri { get; set; }
         public string Version { get; set; }
         public DateTimeOffset CreatedAt { get; set; }

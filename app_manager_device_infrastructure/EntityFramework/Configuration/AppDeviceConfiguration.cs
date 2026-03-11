@@ -8,7 +8,7 @@ namespace app_manager_device_infrastructure.EntityFramework.Configuration
     {
         public void Configure(EntityTypeBuilder<AppDeviceEF> builder)
         {
-            builder.HasKey(am => am.Id);
+            builder.HasKey(am => new { am.Id, am.Device });
 
             builder.Property(am => am.Id).HasColumnType("varchar(40)").ValueGeneratedNever();
             builder.Property(am => am.Device).IsRequired().HasMaxLength(200);

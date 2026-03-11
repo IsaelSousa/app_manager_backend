@@ -13,9 +13,9 @@ namespace app_manager_device_backend.Controllers
     public class AppManagerController(IMediator mediator) : ControllerBase
     {
         [HttpGet("list-apps")]
-        public Task<ResponseModel<List<AppManagerDTO>>> Get()
+        public Task<ResponseModel<List<AppManagerDTO>>> Get([FromQuery] AppGetByFilterRequest request)
         {
-            return mediator.Send(new AppGetByFilterRequest());
+            return mediator.Send(request);
         }
 
         [HttpPost("create-or-update")]

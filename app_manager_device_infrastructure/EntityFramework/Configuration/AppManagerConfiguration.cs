@@ -26,6 +26,12 @@ namespace app_manager_device_infrastructure.EntityFramework.Configuration
                 .IsRequired();
 
             builder.Property(am => am.IsDeleted).HasDefaultValue(false);
+
+            builder
+                .HasMany(e => e.Devices)
+                .WithOne(e => e.AppManager)
+                .HasForeignKey(e => e.AppManagerId)
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

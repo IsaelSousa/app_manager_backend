@@ -13,7 +13,7 @@ namespace app_manager_device_application.Commands.AppManager.GetByFilter
     {
         public async Task<ResponseModel<List<AppManagerDTO>>> Handle(AppGetByFilterRequest request, CancellationToken cancellationToken)
         {
-            var entities = await repository.GetByFilter();
+            var entities = await repository.GetByFilter(request.Device);
 
             if (entities.Count == 0) return new ResponseModel<List<AppManagerDTO>>(false, "No entities found");
 
