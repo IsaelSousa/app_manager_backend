@@ -9,17 +9,17 @@ namespace app_manager_device_application.Commands.AppDevice.GetByFilter
     public class DeviceGetByFilterHandler(
             IAppDeviceRepository repository,
             IMapper mapper
-        ) : IRequestHandler<DeviceGetByFilterRequest, ResponseModel<List<AppDeviceDTO>>>
+        ) : IRequestHandler<DeviceGetByFilterRequest, ResponseModel<AppDeviceDTO>>
     {
-        public async Task<ResponseModel<List<AppDeviceDTO>>> Handle(DeviceGetByFilterRequest request, CancellationToken cancellationToken)
+        public async Task<ResponseModel<AppDeviceDTO>> Handle(DeviceGetByFilterRequest request, CancellationToken cancellationToken)
         {
             var entities = await repository.GetByFilter(request.Device);
 
-            if (entities.Count == 0) return new ResponseModel<List<AppDeviceDTO>>(false, "No entities found");
+            if (entities.Count == 0) return new ResponseModel<AppDeviceDTO>(false, "No entities found");
 
-            var response = mapper.Map<List<AppDeviceDTO>>(entities);
+            var response = mapper.Map<AppDeviceDTO>(entities.FirstOrDefault());
 
-            return new ResponseModel<List<AppDeviceDTO>>(response);
+            return new ResponseModel<AppDeviceDTO>(response);
         }
     }
 }

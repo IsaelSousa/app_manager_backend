@@ -4,7 +4,7 @@ using MediatR;
 
 namespace app_manager_device_application.Commands.AppDevice.GetByFilter
 {
-    public class DeviceGetByFilterRequest : IRequest<ResponseModel<List<AppDeviceDTO>>>
+    public class DeviceGetByFilterRequest : IRequest<ResponseModel<AppDeviceDTO>>
     {
         public string Device { get; set; }
     }

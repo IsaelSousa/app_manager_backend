@@ -12,8 +12,8 @@ namespace app_manager_device_backend.Controllers
     [Route("api/[controller]")]
     public class AppDeviceController(IMediator mediator) : ControllerBase
     {
-        [HttpGet("list-apps")]
-        public Task<ResponseModel<List<AppDeviceDTO>>> Get([FromQuery] DeviceGetByFilterRequest request)
+        [HttpGet("list-apps-by-device")]
+        public Task<ResponseModel<AppDeviceDTO>> Get([FromQuery] DeviceGetByFilterRequest request)
         {
             return mediator.Send(request);
         }
