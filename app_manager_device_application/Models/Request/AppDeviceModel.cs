@@ -2,7 +2,7 @@
 {
     public class AppDeviceModel
     {
-        public string Id { get; set; } = null;
+        public string? Id { get; set; } = null;
         public string Device { get; set; }
         public string AppManagerId { get; set; }
         public string Uri { get; set; }
