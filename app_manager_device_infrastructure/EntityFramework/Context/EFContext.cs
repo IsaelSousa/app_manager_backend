@@ -23,7 +23,20 @@ namespace app_manager_device_infrastructure.EntityFramework.Context
 
         public override int SaveChanges()
         {
+            UpdateTrackableEntities();
             return base.SaveChanges();
+        }
+
+        private void UpdateTrackableEntities()
+        {
+            var entries = ChangeTracker.Entries<ITrackable>();
+            foreach (var entry in entries)
+            {
+                if (entry.State == EntityState.Added || entry.State == EntityState.Modified)
+                {
+                    entry.Entity.LastUpdate = DateTimeOffset.UtcNow;
+                }
+            }
         }
     }
 }

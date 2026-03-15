@@ -30,6 +30,9 @@ namespace app_manager_device_application.Mappers
             CreateMap<AppDeviceModel, AppDeviceDTO>()
                 .ReverseMap();
 
+            CreateMap<AppManagerEF, CheckUpdateDTO>()
+                .ConvertUsing<Converters.CheckUpdateConverter>();
+
         }
     }
 }

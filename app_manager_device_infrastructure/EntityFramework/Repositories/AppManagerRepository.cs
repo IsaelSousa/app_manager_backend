@@ -50,5 +50,13 @@ namespace app_manager_device_infrastructure.EntityFramework.Repositories
                 .Include(x => x.Devices.Where(d => !d.IsDeleted && (string.IsNullOrEmpty(device) || d.Device == device)))
                 .ToListAsync();
         }
+
+        public async Task<List<AppManagerEF>> GetByFilterOnlyFromDevice(string device)
+        {
+            return await _dbSet
+                .Where(x => !x.IsDeleted)
+                .Include(x => x.Devices.Where(d => !d.IsDeleted && d.Device == device))
+                .ToListAsync();
+        }
     }
 }

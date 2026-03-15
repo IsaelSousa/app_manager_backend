@@ -35,5 +35,11 @@
             this.message = message;
             return this;
         }
+
+        public ResponseModel<T> SetStatus(bool status)
+        {
+            this.status = status;
+            return this;
+        }
     }
 }

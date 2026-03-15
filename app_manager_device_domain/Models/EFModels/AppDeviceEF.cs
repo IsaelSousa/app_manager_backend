@@ -1,6 +1,6 @@
 ﻿namespace app_manager_device_domain.Models.EFModels
 {
-    public class AppDeviceEF
+    public class AppDeviceEF : ITrackable
     {
         public string Id { get; set; }
         public string Device { get; set; }

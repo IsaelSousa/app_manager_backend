@@ -5,6 +5,7 @@ namespace app_manager_device_domain.Entities.AppManagerAggregate
     public interface IAppManagerRepository
     {
         Task<List<AppManagerEF>> GetByFilter(string device);
+        Task<List<AppManagerEF>> GetByFilterOnlyFromDevice(string device);
         Task<AppManagerEF> CreateOrUpdate(AppManagerEF appManagerEF);
         Task<bool> Delete(string id);
     }
